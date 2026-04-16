@@ -1,3 +1,7 @@
+
+I built a full-stack dashboard that syncs orders from RetailCRM into Supabase, displays them in a Next.js app, and sends Telegram alerts for large orders
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
