@@ -1,26 +1,46 @@
-app/
-page.tsx # Dashboard UI
+# GBC Dashboard
 
-lib/
-retailcrm.ts # RetailCRM API helper
-supabase.ts # Supabase client
-telegram.ts # Telegram bot helper
-
-scripts/
-import-mock-orders.ts # Upload test orders to RetailCRM
-sync-retailcrm-to-supabase.ts # Sync orders → Supabase
-test-telegram.ts # Send test Telegram message
-
-mock_orders.json # Test data
-
+A full-stack dashboard that syncs orders from RetailCRM into Supabase, displays analytics in a Next.js app, and sends Telegram alerts for high-value orders.
 
 ---
 
-## ⚙️ Environment Variables
+## What I Built
 
-Create a `.env.local` file:
+This project does:
 
-```env
+* Imports mock orders into RetailCRM
+* Syncs orders from RetailCRM → Supabase
+* Displays orders and revenue in a dashboard
+* Sends Telegram alerts for large orders (> 50,000 ₸)
+
+---
+
+## Tech Stack
+
+* Next.js (React + TypeScript)
+* Supabase (PostgreSQL)
+* RetailCRM API
+* Telegram Bot API
+* Vercel (deployment)
+
+---
+
+## Project Structure
+
+* `app/page.tsx` — dashboard UI
+* `lib/retailcrm.ts` — RetailCRM API helper
+* `lib/supabase.ts` — Supabase client
+* `lib/telegram.ts` — Telegram bot
+* `scripts/import-mock-orders.ts` — import test orders
+* `scripts/sync-retailcrm-to-supabase.ts` — sync orders
+* `scripts/test-telegram.ts` — test Telegram
+
+---
+
+## Environment Variables
+
+Create `.env.local`:
+
 SUPABASE_URL=
 SUPABASE_SERVICE_ROLE_KEY=
 NEXT_PUBLIC_SUPABASE_URL=
@@ -29,71 +49,96 @@ RETAILCRM_API_KEY=
 RETAILCRM_BASE_URL=
 TELEGRAM_BOT_TOKEN=
 TELEGRAM_CHAT_ID=
-▶️ Running Locally
+
+---
+
+## Run Locally
+
 npm install
 npm run dev -- --hostname 127.0.0.1
 
-Open:
+Open: http://127.0.0.1:3000
 
-http://127.0.0.1:3000
-📜 Scripts
-Import mock orders into RetailCRM
+---
+
+## Scripts
+
+Import orders:
 npx tsx scripts/import-mock-orders.ts
-Sync orders → Supabase
+
+Sync orders:
 npx tsx scripts/sync-retailcrm-to-supabase.ts
-Test Telegram bot
+
+Test Telegram:
 npx tsx scripts/test-telegram.ts
-🤖 AI Usage
+
+---
+
+## AI Usage
 
 I used ChatGPT to:
 
-generate RetailCRM import scripts
-build Supabase sync logic
-implement Telegram bot integration
-debug API errors and invalid keys
-fix Supabase Row Level Security issues
-debug Next.js runtime and cache issues
-💬 Example Prompts
-"Create a TypeScript script to import JSON orders into RetailCRM API"
-"Write a script to sync RetailCRM orders into Supabase"
-"Create a Telegram bot alert for orders above 50,000 ₸"
-"Fix Supabase RLS so frontend can read data"
-"Debug invalid API key error in Supabase client"
-⚠️ Challenges I Faced
-Invalid Supabase API key caused connection errors
-Supabase returned empty data due to RLS restrictions
-Telegram API requests failed due to network restrictions
-Next.js local server cache caused runtime issues
-Environment variables were not loaded correctly
-✅ How I Solved Them
-Corrected Supabase anon and service role keys
-Added SELECT RLS policy for public access
-Used a working network/VPN for Telegram API
-Cleared .next cache and restarted dev server
-Ensured .env.local variables were correctly loaded
-📊 Result
+* generate RetailCRM import script
+* generate Supabase sync logic
+* create Telegram bot integration
+* debug API errors and invalid keys
+* fix Supabase RLS issues
+* fix Next.js runtime issues
 
-The system successfully:
+---
 
-imports orders into RetailCRM
-stores them in Supabase
-displays total orders and revenue
-shows order table in dashboard
-sends Telegram alerts for large orders
-🔗 Links
+## Challenges
+
+* Invalid Supabase API key
+* Supabase RLS blocking data
+* Telegram API timeout due to network
+* Next.js local cache issues
+* Environment variables not loading
+
+---
+
+## Solutions
+
+* Fixed Supabase keys
+* Added SELECT RLS policy
+* Used VPN/network fix for Telegram
+* Cleared `.next` cache
+* Corrected `.env.local` setup
+
+---
+
+## Result
+
+The system works end-to-end:
+
+* Orders imported from RetailCRM
+* Stored in Supabase
+* Displayed in dashboard
+* Telegram alerts sent for large orders
+
+---
+
+## Links
+
 GitHub: https://github.com/warda-tariqq/gbc-dashboard
 Live App: https://gbc-dashboard-f9sl.vercel.app
-📩 Telegram Alert Example
+
+---
+
+## Telegram Alert Example
+
 🚨 Large order detected
 Order: 1002
 Customer: Sara Ahmed
 Total: 60000 ₸
-🧠 Summary
+
+---
+
+## Summary
 
 This project demonstrates:
 
-API integration
-data pipelines
-database design
-full-stack development
-real-time alerting systems
+* API integration
+* data pipeline
+* full-stack development
+* real-time alert system
