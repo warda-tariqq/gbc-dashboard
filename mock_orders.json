@@ -1,0 +1,30 @@
+[
+  {
+    "number": "1001",
+    "firstName": "Ali",
+    "lastName": "Khan",
+    "phone": "+77001112233",
+    "status": "new",
+    "items": [
+      {
+        "price": 15000,
+        "quantity": 2,
+        "name": "Shoes"
+      }
+    ]
+  },
+  {
+    "number": "1002",
+    "firstName": "Sara",
+    "lastName": "Ahmed",
+    "phone": "+77002223344",
+    "status": "new",
+    "items": [
+      {
+        "price": 60000,
+        "quantity": 1,
+        "name": "Bag"
+      }
+    ]
+  }
+]
